@@ -26,14 +26,14 @@ namespace WindowsFormsApp1
         {
             // Log the exception, display it, etc
             Debug.WriteLine(e.Exception.Message);
-            log.Error(e.Exception.Message);
+            log.Error(e.Exception);
         }
 
         private static void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e)
         {
             // Log the exception, display it, etc
             Debug.WriteLine((e.ExceptionObject as Exception).Message);
-            log.Error((e.ExceptionObject as Exception).Message);
+            log.Error((e.ExceptionObject as Exception));
         }
     }
 }
