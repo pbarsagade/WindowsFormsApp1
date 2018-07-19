@@ -14,7 +14,12 @@ namespace WindowsFormsApp1
         [STAThread]
         static void Main()
         {
+            // This is to handle UI thread exceptions to the event.
             Application.ThreadException += new ThreadExceptionEventHandler(Application_ThreadException);
+            // Set the unhandled exception mode to force all Windows Forms errors to go through
+            // our handler.
+            Application.SetUnhandledExceptionMode(UnhandledExceptionMode.CatchException);
+            // This is for handling non-UI thread exceptions to the event. 
             AppDomain.CurrentDomain.UnhandledException += new UnhandledExceptionEventHandler(CurrentDomain_UnhandledException);
 
             Application.EnableVisualStyles();
